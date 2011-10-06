@@ -3,23 +3,23 @@
   var max_heap = function () {
 
     // Array that powers the heap
-    var back_array = [];
+    var back_array = [],
 
     // Expose public functions as if Javascript actually had classes
-    var _public = {};
+    _public = {},
 
     // It's useful to swap stuff, right?
     // a, b are indexes of values in back_array
-    var swap = function (a, b) {
+    swap = function (a, b) {
       var temp = back_array[a];
       back_array[a] = back_array[b];
       back_array[b] = temp;
-    };
+    },
 
     // Bizzles
     // Find the max value between a parent and its children and swap it into
     // the parent's bed
-    var bubble_down = function (position) {
+    bubble_down = function (position) {
       var left  = 2 * position + 1,
           right = 2 * position,
           max   = position;
@@ -38,11 +38,11 @@
         swap(max, position);
         bubble_down(max);
       }
-    };
+    },
 
     // Wizzles
     // If this node's value is less than its parent, swap spots
-    var bubble_up = function (position) {
+    bubble_up = function (position) {
       // Validate position input
       if (position <= 0) return;
 
